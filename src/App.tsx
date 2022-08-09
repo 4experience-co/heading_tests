@@ -9,7 +9,7 @@ function App() {
   const isIOS = useMemo(() => navigator.userAgent.match(/(iPod|iPhone|iPad)/) && navigator.userAgent.match(/AppleWebKit/), []);
 
   const handler = useCallback((e: DeviceOrientationEvent) => {
-    setHeading((e as any).webkitCompassHeading || Math.abs(e.alpha! - 360));
+    setHeading(Math.round((e as any).webkitCompassHeading || Math.abs(e.alpha! - 360)));
   }, []);
 
   useEffect(() => {
