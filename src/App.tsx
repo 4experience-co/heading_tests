@@ -13,9 +13,12 @@ function App() {
   }, []);
 
   useEffect(() => {
+    console.log(isIOS);
     if (!isIOS) {
+      console.log("not ios");
       window.addEventListener("deviceorientationabsolute", handler, true);
     }
+    return () => { window.removeEventListener("deviceorientationabsolute", handler, true); };
   }, [handler, isIOS]);
 
   const start = () => {
