@@ -33,10 +33,10 @@ function App() {
   return (
     <div className="App">
       <button type='button' onClick={start}>Start compass</button>
-      <h1>webitCompassHeading</h1>
-      <h1>
+      <p>webitCompassHeading</p>
+      <p>
         Heading:{heading}
-      </h1>
+      </p>
     </div>
   );
 }
