@@ -1,0 +1,1 @@
+Change the base in vite.config.ts to the name matching repository name
