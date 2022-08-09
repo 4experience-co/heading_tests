@@ -16,9 +16,9 @@ function App() {
     console.log(isIOS);
     if (!isIOS) {
       console.log("not ios");
-      window.addEventListener("deviceorientationabsolute", handler, true);
+      window.addEventListener("deviceorientationabsolute", handler as any);
     }
-    return () => { window.removeEventListener("deviceorientationabsolute", handler, true); };
+    return () => { window.removeEventListener("deviceorientationabsolute", handler as any); };
   }, [handler, isIOS]);
 
   const start = () => {
