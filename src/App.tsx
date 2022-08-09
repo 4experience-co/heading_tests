@@ -8,15 +8,15 @@ function App() {
 
   const isIOS = useMemo(() => navigator.userAgent.match(/(iPod|iPhone|iPad)/) && navigator.userAgent.match(/AppleWebKit/), []);
 
-  const handler = useCallback((e: any) => {
-    setHeading(e.webkitCompassHeading || Math.abs(e.alpha - 360));
+  const handler = useCallback((e: DeviceOrientationEvent) => {
+    setHeading((e as any).webkitCompassHeading || Math.abs(e.alpha! - 360));
   }, []);
 
   useEffect(() => {
     console.log(isIOS);
     if (!isIOS) {
       console.log("not ios");
-      window.addEventListener("deviceorientation", handler, true);
+      window.addEventListener("deviceorientationabsolute", handler, true);
     }
     return () => { window.removeEventListener("deviceorientationabsolute", handler, true); };
   }, [handler, isIOS]);
