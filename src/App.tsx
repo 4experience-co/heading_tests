@@ -36,7 +36,6 @@ function App() {
   return (
     <div className="App">
       <button type='button' onClick={start}>Start compass</button>
-      <p>webitCompassHeading</p>
       <p>
         Heading:{heading}
       </p>
